@@ -1,0 +1,26 @@
+﻿@model GlobalizationCultures.Models.GlobalizationOptionsModel
+
+<div class="panel panel-success">
+    <div class="panel-body">
+        @using (Html.BeginForm("GlobalizationOptions", "Home"))
+        {
+            @Html.ValidationSummary()
+
+            <div class="form-group col-sm-2" >
+                @Html.DropDownListFor(x => x.Option, new[] {
+                new SelectListItem() {Text = "pl-PL",
+                Value = "pl-PL" },
+                new SelectListItem() {Text = "en-GB",
+                Value = "en-GB", Selected = (string)TempData["SelectedOption"] == "en-GB" ? true : false }
+                }, null, new { @class = "form-control" })
+            </div>
+            <br />
+
+            <div class="text-center">
+                <input class="btn btn-success" type="submit" value="Zmień" />
+            </div>
+        }
+    </div>
+</div>
+
+
